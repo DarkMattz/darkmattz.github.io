@@ -1,5 +1,10 @@
 function enableScrollAnimation(before){
-   console.log("whjyyy")
+   var offTime;
+   if($(window).height() > $(window).width()){
+      offTime = 500;
+   } else {
+      offTime = 150;
+   }
    $("#scrollable").on("scroll", function () {
       $("#scrollable").unbind("scroll");
       console.log($("#scrollable").scrollTop(), $(window).height(), before);
@@ -13,7 +18,7 @@ function enableScrollAnimation(before){
             }
             setTimeout(()=>{
                enableScrollAnimation(before)
-            }, 150);
+            }, offTime);
          })
          before++;
       } else if($("#scrollable").scrollTop() < (before * $(window).height())) {
@@ -22,7 +27,7 @@ function enableScrollAnimation(before){
          }, 800, () => {
             setTimeout(()=>{
                enableScrollAnimation(before)
-            }, 150)
+            }, offTime)
          })
          before--;
       }
@@ -43,6 +48,12 @@ $(document).ready(()=>{
       });
       enableScrollAnimation(0);
    });
+   var offTime;
+   if($(window).height() > $(window).width()){
+      offTime = 500;
+   } else {
+      offTime = 150;
+   }
    $(".welcome #next-page svg").one("click", function () {
       $("#scrollable").unbind("scroll");
       $('#scrollable').animate({
@@ -53,7 +64,7 @@ $(document).ready(()=>{
          }
          setTimeout(()=>{
             enableScrollAnimation(0)
-         }, 150);
+         }, offTime);
       })
    });
 });
