@@ -1,14 +1,9 @@
-//remove scrollbar
-var parent = document.getElementById('container');
-var child = document.getElementById('scrollable');
-child.style.paddingLeft = (child.offsetWidth - child.clientWidth)/2 + "px";
-child.style.paddingRight = child.style.paddingLeft; 
-
 function enableScrollAnimation(before){
-   $("#scrollable").scroll(() => {
+   console.log("whjyyy")
+   $("#scrollable").on("scroll", function () {
       $("#scrollable").unbind("scroll");
-      console.log(child.scrollTop, $(window).height(), before);
-      if(child.scrollTop > (before * $(window).height())){
+      console.log($("#scrollable").scrollTop(), $(window).height(), before);
+      if($("#scrollable").scrollTop() > (before * $(window).height())){
          $('#scrollable').animate({
             scrollTop: (before * $(window).height()) + $(window).height()
          }, 800, () => {
@@ -21,7 +16,7 @@ function enableScrollAnimation(before){
             }, 150);
          })
          before++;
-      } else if(child.scrollTop < (before * $(window).height())) {
+      } else if($("#scrollable").scrollTop() < (before * $(window).height())) {
          $('#scrollable').animate({
             scrollTop: (before * $(window).height()) - $(window).height()
          }, 800, () => {
@@ -35,13 +30,18 @@ function enableScrollAnimation(before){
 };
 
 $(document).ready(()=>{
-   enableScrollAnimation(0);
    $(".welcome h1").one("animationend", function () {
+      $("#scrollable").css("overflow-y", "auto");
+      var parent = document.getElementById('container');
+      var child = document.getElementById('scrollable');
+      child.style.paddingLeft = (child.offsetWidth - child.clientWidth)/2 + "px";
+      child.style.paddingRight = child.style.paddingLeft;
       $(".welcome #next-page svg").css({
          "cursor": "pointer",
          "opacity": "1",
          "pointer-events": "initial"
       });
+      enableScrollAnimation(0);
    });
    $(".welcome #next-page svg").one("click", function () {
       $("#scrollable").unbind("scroll");
