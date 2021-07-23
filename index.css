@@ -1,0 +1,109 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, black, white);
+    background-size: auto 700%;
+    animation: ColorSwift 3s ease 1 forwards;
+}
+
+
+@keyframes ColorSwift {
+    0%{
+        background: white;
+        color: black;
+    }
+    100%{
+        background: black;
+        color: white;
+    }
+}
+
+
+#container{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#scrollable{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+
+html, body{
+    height: 100%;
+    overflow: hidden;
+}
+
+.welcome{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.welcome h1{
+    animation: BigText 3s ease 1 forwards;
+}
+
+@keyframes BigText {
+    0%{
+        transform: none;
+    }
+    100%{
+        transform: scale(2, 2);
+    }
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-height: 100vh;
+    text-align: center;
+}
+
+.about > h1{
+    margin-bottom: 10vw;
+}
+
+.profile{
+    display: flex;
+    flex-direction: row;
+    text-align: initial;   
+    justify-content: center;
+    margin-bottom: 10vw;;
+}
+
+
+.profile > img{
+    border-radius: 100%;
+    width: 15vw;
+    height: 15vw;
+    margin: 0 5vw;
+}
+
+.text h2{
+    margin-bottom: 2vw;
+}
+
+.text{
+    width: 40%;
+    margin-right: 10vw;
+}
+
+.text span{
+    font-family: sans-serif;
+}
