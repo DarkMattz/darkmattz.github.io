@@ -2,6 +2,8 @@
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    fill: white;
+    animation: ColorSwift 3s ease 1 forwards; 
 }
 
 body{
@@ -9,7 +11,6 @@ body{
     height: 100%;
     background: linear-gradient(0deg, black, white);
     background-size: auto 700%;
-    animation: ColorSwift 3s ease 1 forwards;
 }
 
 
@@ -23,7 +24,6 @@ body{
         color: white;
     }
 }
-
 
 #container{
     height: 100%;
@@ -44,12 +44,44 @@ html, body{
 }
 
 .welcome{
+    position: relative;
     display: flex;
     height: 100vh;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     overflow-x: hidden;
+}
+
+.welcome #next-page{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+}
+
+.welcome #next-page p{
+    font-size: 1.5vw;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.welcome #next-page svg{
+    pointer-events: none;
+    height: 5vw;
+    width: 5vw;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.welcome #next-page p:hover{
+    cursor: default;
+}
+
+.welcome #next-page svg:hover + p{
+    opacity: 1;
 }
 
 .welcome h1{

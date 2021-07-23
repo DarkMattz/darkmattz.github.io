@@ -18,8 +18,7 @@ function enableScrollAnimation(before){
             }
             setTimeout(()=>{
                enableScrollAnimation(before)
-            }, 150)
-            console.log("exec");
+            }, 150);
          })
          before++;
       } else if(child.scrollTop < (before * $(window).height())) {
@@ -37,6 +36,26 @@ function enableScrollAnimation(before){
 
 $(document).ready(()=>{
    enableScrollAnimation(0);
-})
+   $(".welcome h1").one("animationend", function () {
+      $(".welcome #next-page svg").css({
+         "cursor": "pointer",
+         "opacity": "1",
+         "pointer-events": "initial"
+      });
+   });
+   $(".welcome #next-page svg").one("click", function () {
+      $("#scrollable").unbind("scroll");
+      $('#scrollable').animate({
+         scrollTop: $(window).height()
+      }, 800, () => {
+         if($(".welcome").css("display") != "none"){
+            $(".welcome").css("display", "none")
+         }
+         setTimeout(()=>{
+            enableScrollAnimation(0)
+         }, 150);
+      })
+   });
+});
 
 
