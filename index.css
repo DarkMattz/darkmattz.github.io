@@ -2,19 +2,135 @@
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    fill: white;
-    animation: ColorSwift 3s ease 1 forwards; 
 }
 
 body{
     width: 100%;
-    height: 100%;
-    background: linear-gradient(0deg, black, white);
+    height: 100%; 
     background-size: auto 700%;
+    animation: ColorSwiftBlack 3s ease 1 forwards;
+}
+
+nav{
+    margin-top: 15px;
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+}
+
+.light-toggle{
+    margin-right: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    top: 20vh;
+}
+
+.light-toggle p{
+    opacity: 0;
+    margin: 15px;
+    transition: opacity 0.5s;
+}
+
+.light-toggle p:after{
+    content: attr(data);
+}
+
+@keyframes TextChangeA { 
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes TextChangeB { 
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 
 
-@keyframes ColorSwift {
+.light-toggle p:hover{
+    cursor: default;
+    user-select: none;
+}
+
+.light-toggle .toggle:hover + p{
+    opacity: 1;
+}
+
+.toggle {
+    opacity: 0;
+    pointer-events: none;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    transition: opacity 2s cubic-bezier(0, 0.84, 0.58, 1);
+}
+
+.toggle input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    width: inherit;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background: no-repeat url(./Assets/Pictures/moon-fill.svg) white center;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #f0ff23;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #f0ff23;
+}
+
+input:checked + .slider:before {
+    background: center no-repeat url(./Assets/Pictures/brightness-high-fill.svg) white ;
+    background-size: 70%;
+    background-position: 60.5% 65%;
+    transform: translateX(26px);
+}
+
+@keyframes ColorSwiftBlack {
     0%{
         background: white;
         color: black;
@@ -22,6 +138,17 @@ body{
     100%{
         background: black;
         color: white;
+    }
+}
+
+@keyframes ColorSwiftWhite {
+    0%{
+        background: black;
+        color: white;
+    }
+    100%{
+        background: white;
+        color: black;
     }
 }
 
@@ -74,10 +201,30 @@ html, body{
     width: 5vw;
     opacity: 0;
     transition: opacity 2s cubic-bezier(0, 0.84, 0.58, 1);
+    fill: white;
+}
+
+@keyframes SVGBlack {
+    0%{
+        fill: white;
+    }
+    100%{
+        fill: black;
+    }
+}
+
+@keyframes SVGWhite {
+    0%{
+        fill: black;
+    }
+    100%{
+        fill: white;
+    }
 }
 
 .welcome #next-page p:hover{
     cursor: default;
+    user-select: none;
 }
 
 .welcome #next-page svg:hover + p{
