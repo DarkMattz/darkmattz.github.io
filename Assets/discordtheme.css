@@ -38,6 +38,7 @@
   --background-sepia: 0%;
   --background-blur: 0px;
   --backdrop-overlay: rgba(0, 0, 0, .8);
+  --background-image: url(https://darkmattz.github.io/Assets/Pictures/leah.png); /* app background image (link must be HTTPS) [default: url(https://clearvision.gitlab.io/images/sapphire.jpg)]*/
   --backdrop-image: var(--background-image);
   --backdrop-position: var(--background-position);
   --backdrop-size: var(--background-size);
