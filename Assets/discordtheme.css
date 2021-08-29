@@ -267,12 +267,6 @@ textarea,
   white-space: nowrap;
   order: 1;
 }
-.typeWindows-1za-n7 > .wordmark-2iDDfm:after {
-  content: "v6.1.1";
-  color: rgba(255, 255, 255, 0.3);
-  font-family: var(--code-font);
-  font-size: 10px;
-}
 .typeWindows-1za-n7 > .wordmark-2iDDfm > svg {
   filter: drop-shadow(0 0 5px var(--main-color));
   margin-top: 6px;
@@ -323,10 +317,6 @@ textarea,
   color: var(--main-color);
   font-weight: 700;
   text-shadow: 0 0 3px;
-}
-.typeMacOS-3EmCyP:after {
-  content: "6.1.1";
-  color: rgba(255, 255, 255, 0.3);
 }
 
 /* HEADER BAR */
@@ -1225,13 +1215,6 @@ textarea,
   font-size: 11px;
   font-weight: 700;
   transition: all 0.5s ease-in-out;
-}
-.container-3baos1:after {
-  content: "v6.1.1";
-  left: 50%;
-  text-align: left;
-  opacity: 0;
-  transform: translateX(50%) rotateX(90deg);
 }
 .container-3baos1:hover:before {
   margin-right: 1px;
